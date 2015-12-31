@@ -15,7 +15,7 @@
         </classpath>
       </taskdef>
        
-    <property file="GeneratePackage_xml.properties"/>
+    <property file="build.properties"/>
     <property environment="env"/>
  
   
@@ -144,10 +144,10 @@
             <delete file="tmp/@{orgName}.Package.xml.Snnipet.Document"/>
             
             <!-- Create Fresh Files -->
-            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Dashboard"/>
-            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Report"/>
-            <touch file="tmp/@{orgName}.Package.xml.Snnipet.EmailTemplate"/>
-            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Document"/>
+            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Dashboard" mkdirs="true"/>
+            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Report" mkdirs="true"/>
+            <touch file="tmp/@{orgName}.Package.xml.Snnipet.EmailTemplate" mkdirs="true"/>
+            <touch file="tmp/@{orgName}.Package.xml.Snnipet.Document" mkdirs="true"/>
             
             <!-- Empty Content in each file -->
             <property name="blankVal" value=""/> 
@@ -227,7 +227,7 @@
         <GeneratePackage_xml
             sfUserName = "${sf.username}" 
             sfPassword = "$${sf.password}"
-            sfServerURL = "${sfPRO.serverurl}"
+            sfServerURL = "${sf.serverurl}"
             packageXMLPath = "${basedir}/${sf.xmlPath}/Package.xml" 
             orgName="${sf.Name}"  />
             
